@@ -1,0 +1,50 @@
+[
+  {
+    "msg_type": "template",
+    "template": "test__1",
+    "lang": "en_US",
+    "header_type": "none",
+    "header_text": "",
+    "media_source": "id",
+    "media_path": "",
+    "media_url": "",
+    "media_id": "",
+    "body_params": "",
+    "button_params": "",
+    "body_text": "hallo world",
+    "footer_text": "hallo world",
+    "ctas": []
+  },
+  {
+    "msg_type": "interactive",
+    "template": "test__1",
+    "lang": "en_US",
+    "header_type": "none",
+    "header_text": "",
+    "media_source": "path",
+    "media_path": "",
+    "media_url": "",
+    "media_id": "",
+    "body_params": "",
+    "button_params": "",
+    "body_text": "hallo world",
+    "footer_text": "hallo world",
+    "ctas": []
+  },
+  {
+    "msg_type": "template",
+    "template": "test__1",
+    "lang": "en",
+    "header_type": "none",
+    "header_text": "",
+    "media_source": "id",
+    "media_path": "",
+    "media_url": "",
+    "media_id": "",
+    "body_params": "",
+    "button_params": "",
+    "body_text": "hallo world",
+    "footer_text": "hallo world",
+    "ctas": []
+  }
+]

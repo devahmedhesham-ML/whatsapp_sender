@@ -1,0 +1,51 @@
+{
+  "data": [
+    {
+      "name": "test_3",
+      "parameter_format": "NAMED",
+      "components": [
+        {
+          "type": "HEADER",
+          "format": "IMAGE",
+          "example": {
+            "header_handle": [
+              "https://play-lh.googleusercontent.com/Ol88HxkTBOIN-4Pcq41pQ5DVt3Ty9o2H6pGJABYO8ZBtlS_8QeP5fZ3w_VfEUFQ3ZjJ3"
+            ]
+          }
+        },
+        {
+          "type": "BODY",
+          "text": "Waffarha's team is here to help 🫡"
+        },
+        {
+          "type": "FOOTER",
+          "text": "Type / to see available commands"
+        },
+        {
+          "type": "BUTTONS",
+          "buttons": [
+            {
+              "type": "FLOW",
+              "text": "Customer Support Form",
+              "flow_token": "2",
+              "flow_id": 765548586416318,
+              "flow_action": "NAVIGATE",
+              "navigate_screen": "route"
+            }
+          ]
+        }
+      ],
+      "language": "en",
+      "status": "APPROVED",
+      "category": "MARKETING",
+      "id": "750948114372791"
+    }
+  ],
+  "paging": {
+    "cursors": {
+      "before": "MAZDZD",
+      "after": "MjQZD"
+    }
+  }
+}
+
