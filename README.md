@@ -89,3 +89,52 @@ The UI streamlines the process of creating the complex CSV formats and managing 
 
 ```bash
 python ui_app.py
+```
+
+### Key UI Actions
+
+* **Preview Payload:** Generates and displays the final JSON message structure for the first recipient **without sending**.
+* **Generate CSV:** Saves a CSV file compatible with `send_batch.py`.
+* **Media Menu:** Facilitates uploading local files and reusing cached media IDs.
+    * **Upload Media:** Uploads a local file to the Meta `/media` endpoint, copies the resulting `media_id` to the clipboard, and inserts it into the current header settings.
+    * **Media Library:** Browse previously uploaded IDs stored in `media_cache.json`.
+
+---
+
+## 📝 Behavior Notes & Advanced Usage
+
+### CSV Columns Overview
+
+The tool uses a flexible CSV schema. Columns marked **Shared** are used by both template and interactive modes.
+
+| Column | Shared/Template/Interactive | Description | Example |
+| :--- | :--- | :--- | :--- |
+| `phone` | Shared | E.164 phone number. | `15551234567` |
+| `msg_type` | Shared | Defines message type (`template` or `interactive`). | `template` |
+| `template` | Template | Approved template name. | `order_update` |
+| `lang` | Template | Language code (default `en_US`). | `es` |
+| `body_params` | Template | Pipe-separated list for body variables. | `John|#1234|tracking-link` |
+| `header_type` | Template | `none`, `text`, `image`, `video`, or `document`. | `image` |
+| `header_media_path` | Template | Local path to media file (uploaded and cached). | `assets/logo.png` |
+| `button_params` | Template | Comma-separated dynamic button params (URL suffix). | `A1|B2,C3` |
+| `cta{n}_coupon_code` | Template (Copy Code) | The actual coupon code for the button. | `SUMMER24` |
+| `body_text` | Interactive | Free-form message body. | `Your order is ready.` |
+| `cta0_type` | Interactive | CTA type (`url` or `call`). | `url` |
+
+### Media Caching
+
+The tool saves uploaded media IDs in `media_cache.json`. The key is a **content hash** of the local file. If a file's content hasn't changed, the tool **reuses the cached `media_id`**, preventing unnecessary re-uploads and saving time.
+
+### Sending Interactive Messages
+
+To send an interactive message, ensure the `msg_type` column is set to **`interactive`**. The required fields are `phone`, `body_text`, and the first CTA fields: `cta0_type` (`url` or `call`), `cta0_text`, and either `cta0_url` or `cta0_phone`.
+
+### Sending Coupon Template Messages
+
+The tool abstracts the complexity of Meta's Coupon/Copy Code template buttons. When `send_batch.py` encounters a CTA defined with `type=copy_code` and a `cta{n}_coupon_code`, it automatically constructs the required template component with `sub_type=COPY_CODE` and the coupon parameter.
+
+---
+
+## 🔒 Security
+
+**Always keep your `.env` file and its sensitive tokens out of your source control.** The provided `.gitignore` file already ignores it by default.
