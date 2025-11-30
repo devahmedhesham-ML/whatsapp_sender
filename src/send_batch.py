@@ -15,7 +15,7 @@ from typing import Any, Callable, Dict, Iterable, List, Optional, Sequence, Tupl
 
 from dotenv import load_dotenv
 
-from whatsapp_client import MediaCache, WhatsAppClient, WhatsAppConfig
+from src.whatsapp_client import MediaCache, WhatsAppClient, WhatsAppConfig
 
 
 def parse_args() -> argparse.Namespace:

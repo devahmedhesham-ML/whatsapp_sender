@@ -4,7 +4,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 
-from whatsapp_client import WhatsAppClient
+from src.whatsapp_client import WhatsAppClient
 
 
 @dataclass
@@ -190,7 +190,7 @@ class TemplateConfig:
             "msg_type": (self.msg_type or "template").strip().lower(),
             # Template-mode
             "template": (self.template or "").strip(),
-            "lang": (self.lang or "en_US").strip() or "en_US",
+            "lang": (self.lang or "").strip(),
             "body_params": self.body_params_csv(),
             "header_type": (self.header_type or "none").strip().lower(),
             "header_text": self.header_text.strip() if self.header_type == "text" else "",

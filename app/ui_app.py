@@ -10,7 +10,7 @@ import threading
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional
-
+sys.path.append(str(Path(__file__).resolve().parents[1]))
 try:
     import tkinter as tk
     from tkinter import ttk, messagebox, filedialog
@@ -18,16 +18,16 @@ except Exception as e:  # pragma: no cover
     print("Tkinter is required to run the UI:", e, file=sys.stderr)
     raise
 
-from payload_builder import TemplateConfig, build_csv_rows, write_csv, preview_payload, CtaButton
-from send_batch import (
+from src.payload_builder import TemplateConfig, build_csv_rows, write_csv, preview_payload, CtaButton
+from src.send_batch import (
     BatchProgressEvent,
     BatchSendResult,
     async_run_batch_from_rows,
     ensure_logs_dir,
     run_batch_from_rows,
 )
-from template_archive import load_archive, get_template, TemplateSummary
-from whatsapp_client import WhatsAppClient, WhatsAppConfig, MediaCache
+from app.template_archive import load_archive, get_template, TemplateSummary
+from src.whatsapp_client import WhatsAppClient, WhatsAppConfig, MediaCache
 
 
 @dataclass

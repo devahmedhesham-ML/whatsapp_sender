@@ -1,0 +1,1 @@
+{"status": "dry_run", "payload": {"messaging_product": "whatsapp", "to": "01113025205", "type": "template", "template": {"name": "test__1", "language": {"code": "en"}}}}
